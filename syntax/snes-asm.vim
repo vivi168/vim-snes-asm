@@ -3,10 +3,7 @@ if exists("b:current_syntax")
 endif
 
 syn match snesComment  ";.*$"
-syn match snesConstant "\v\x+"
 syn match snesLabel    "\v\@\w+"
-
-syn keyword miniAsmSpecial incbin
 
 syn case ignore
 
@@ -16,17 +13,15 @@ syn keyword snes65816Keyword adc sbc cmp cpx cpy dec dex dey inc inx iny and eor
 syn keyword spc700Reg x y ya a s sp psw
 syn keyword spc700Keyword adc addw and and1 asl bbc bbs bcc bcs beq bmi bne bpl bvc bvs bra brk call cbne clr1 clrc clrp clrv cmp cmpw daa das dbnz dec decw di div ei eor eor1 inc incw jmp lsr mov mov1 movw mul nop not1 notc or or1 pcall pop push ret ret1 rol ror sbc set1 setc setp sleep stop subw tcall tclr1 tset1 xcn
 
+syn keyword miniAsmKeyword incbin
+
 syn case match
 
-hi def link snesConstant            Constant
-hi def link snesImmediate           Constant
 hi def link snesComment             Comment
 hi def link snesLabel               Label
 
-hi def link snes65816Reg            Special
-hi def link spc700Reg               Special
 hi def link snes65816Keyword        Function
 hi def link spc700Keyword           Function
-hi def link miniAsmSpecial          Special
+hi def link miniAsmKeyword          Special
 
 let b:current_syntax = "snes-asm"
